@@ -453,3 +453,12 @@ function _removeClasses(el, class_name) {
 function _is_hidden(el) {
   return el.offsetParent === null;
 }
+//========================================================================================================================================================
+// Burger
+const burger = document.querySelector(".icon-menu");
+const headerMenu = document.querySelector(".menu__body");
+burger.addEventListener("click", () => {
+  headerMenu.classList.toggle("_active");
+  burger.classList.toggle("_active");
+  document.body.classList.toggle("_lock");
+});

@@ -124,7 +124,7 @@
 }
 
 /* Grid columns for mobile */
-@media (max-width: 768px) {
+@media (max-width: $mobile) {
   .d-mb-block {
     display: block;
   }
@@ -289,7 +289,7 @@
   order: 1;
 }
 
-@media (max-width: 768px) {
+@media (max-width: $mobile) {
   .order-12-mb {
     order: 12;
   }
