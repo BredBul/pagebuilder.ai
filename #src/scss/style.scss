@@ -1,6 +1,6 @@
 @use "sass:math";
 //<МИКСИНЫ>===============================================================================================
-@import "mixins";
+@import "base/mixins";
 //</МИКСИНЫ>===============================================================================================
 
 //<ШРИФТЫ>===============================================================================================
@@ -8,13 +8,12 @@
 //<Подключаем шрифты>=======================================================================================
 //&display=swap&subset=cyrillic-ext
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:regular,600,700,800);
-@import url(https://fonts.googleapis.com/css?family=Mulish:regular,600);
 @import url("https://fonts.googleapis.com/css?family=Roboto:regular&display=swap&subset=cyrillic-ext");
-@import "fonts";
+@import "base/fonts";
 //</Подключаем шрифты>=======================================================================================
 
 //<Иконочные шрифты>==========================================================================================
-@import "icons";
+@import "base/icons";
 //</Иконочные шрифты>==========================================================================================
 
 //<Шрифт по умолчанию>==========================================================================================
@@ -22,24 +21,9 @@ $fontFamily: "Open Sans";
 //</Шрифт по умолчанию>==========================================================================================
 
 //</ШРИФТЫ>=======================================================================================================
-
-//<ПЕРЕМЕННЫЕ>===========================================================================================================
-$minWidth: 320px;
-$maxWidth: 1440px;
-$maxWidthContainer: 1200px;
-$pc: $maxWidthContainer+12px;
-$tablet: 991.98px;
-$mobile: 767.98px;
-$mobileSmall: 479.98px;
-
-$mainColor: #000;
-$primaryColor: #395690;
-$secondaryColor: #ff4777;
-$grayColor: #BDBDBD;
-$bgColor: #F9F9F9;
-//</ПЕРЕМЕННЫЕ>===========================================================================================================
+@import "base/base.scss";
 //<ОБНУЛЕНИЕ, ОБЩИЕ ПАРАМЕТРЫ>===============================================================================================
-@import "null";
+@import "base/null";
 
 body {
     color: $mainColor;
@@ -89,18 +73,17 @@ body {
 //</ОСНОВНАЯ СЕТКА>===========================================================================================================
 
 //<ПОДКЛЮЧЕНИЕ ФАЙЛОВ UI СТИЛЕЙ, ФОРМ И ГОТОВЫХ КЛАССОВ>====================================================================================================
-@import "ui";
-@import "grid";
+@import "base/ui";
+@import "base/grid";
 //</ПОДКЛЮЧЕНИЕ ФАЙЛОВ UI СТИЛЕЙ, ФОРМ И ГОТОВЫХ КЛАССОВ>====================================================================================================
 
 //<ПОДКЛЮЧЕНИЕ ФАЙЛОВ СТИЛЕЙ СТРАНИЦ И ЭЛЕМЕНТОВ>====================================================================================================
-// @import "datepicker";
-//@import "lightgallery";
-//@import "pagging";
-@import "popup";
-@import "header";
-@import "footer";
-@import "home";
+// @import "libs/datepicker";
+//@import "libs/lightgallery";
+//@import "base/pagging";
+@import "base/popup";
+@import "base/header";
+@import "base/footer";
 //</ПОДКЛЮЧЕНИЕ ФАЙЛОВ СТИЛЕЙ СТРАНИЦ И ЭЛЕМЕНТОВ>====================================================================================================
 
 //<ОСНОВНОЙ БЛОК>====================================================================================================
@@ -115,16 +98,299 @@ body {
         background-color: $bgColor;
     }
 
+    &_partners {}
+
+
+    &_blogs {
+        background-color: $bgColor;
+    }
+
+    &_about {}
+
+    &_blog {
+        background-color: $bgColor;
+    }
+
+    &__custom-block {}
+
     &__main-block {
         margin-bottom: 100px;
     }
 
     &__promotion {
         margin-bottom: 100px;
+
+        @media (max-width:$mobile) {
+            margin-bottom: 70px;
+        }
     }
 
     &__guideline {
-        margin-bottom: 450px;
+        margin-bottom: 350px;
+
+        @media (max-width:$mobile) {
+            margin-bottom: 80px;
+        }
+    }
+
+    &__advantages {
+        margin-bottom: 80px;
+
+        @media (max-width:$mobile) {
+            margin-bottom: 70px;
+        }
+    }
+
+    &__benefits {
+        padding: 54px 0 80px;
+
+        @media (max-width:$mobile) {
+            padding: 40px 0px;
+
+        }
+    }
+
+    &__steps {
+        padding: 78px 0;
+    }
+
+    &__testimonials {
+        padding: 77px 0 62px;
+
+        @media (max-width:$mobile) {
+            padding: 0 0 70px;
+        }
+    }
+
+    &__blogs {
+        padding-bottom: 25px;
+    }
+
+    &__banner-cta {}
+}
+
+//====================================================================================================
+// Home
+.main-block {
+    &__body {
+        height: calc(100vh - 80px);
+        padding-top: 80px;
+
+        @media (max-width:$mobile) {
+            height: unset;
+            flex-direction: column;
+        }
+    }
+
+    &__heading {
+        display: flex;
+        flex-direction: column;
+
+        @media (max-width:$mobile) {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+    }
+
+    &__title {
+        color: $primaryColor;
+        margin-bottom: 20px;
+
+        @media (max-width:$mobile) {
+            margin-bottom: 10px;
+        }
+    }
+
+    &__desc {
+        &:not(:last-child) {
+            margin-bottom: 25px;
+
+            @media (max-width:$mobile) {
+                margin-bottom: 30px;
+            }
+        }
+    }
+
+    &__image {
+        padding-bottom: 99%;
+
+        img {
+            object-fit: unset;
+        }
+    }
+}
+
+.promotion {
+
+    &__body {
+        background-color: $primaryColor;
+    }
+
+    &__content {
+        padding: 75px 0;
+    }
+
+    &__headline {
+        color: #fff;
+
+    }
+}
+
+.guideline {
+    background-image: url(../img/home-page/guideline/guidline-background.svg);
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-size: cover;
+
+    @media (max-width:$mobile) {
+        background-image: url(../img/home-page/guideline/guidline-background-mb.svg);
+        background-size: 100% 100%;
+    }
+
+    &__container {}
+
+    &__body {
+        position: relative;
+        margin-bottom: 40px;
+
+        @media (min-width:$mobile) {
+            padding: 100px 0;
+            margin-bottom: 0;
+
+            &:last-child {
+                padding: 100px 0 0;
+            }
+        }
+
+        &.order-2 {
+            // right: 0;
+            left: unset
+        }
+    }
+
+    &__image {
+        margin: 0 auto;
+
+        @media (min-width:$mobile) {
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        img {
+            display: block;
+            max-width: 100%;
+        }
+    }
+
+    &__content {
+        @media (min-width:$mobile) {
+            position: relative;
+            z-index: 5;
+        }
+
+        @media (max-width:$mobile) {
+            margin-bottom: 30px;
+        }
+    }
+
+    &__title {
+        color: $primaryColor;
+        margin-bottom: 25px;
+    }
+
+    &__desc {
+        margin-bottom: 15px;
+    }
+
+    &__link {
+        color: $primaryColor;
+        font-weight: 600;
+        font-size: 20px;
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: flex-start;
+        align-items: center;
+        position: relative;
+        padding-right: 28px;
+
+        &:before {
+            position: absolute;
+            right: 0;
+            transition: right 0.2s;
+            font-size: 12px;
+        }
+
+        @media (any-hover: hover) {
+            &:hover {
+                &:before {
+                    right: -10px;
+                }
+            }
+        }
+    }
+}
+
+//====================================================================================================
+// Banner Call to action
+.banner-cta {
+    position: relative;
+
+    &__body {}
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 91px 0 74px;
+        position: relative;
+        z-index: 2;
+
+        @media (max-width:$mobile) {
+            padding: 45px 0;
+        }
+    }
+
+    &__title {
+        color: #fff;
+        margin-bottom: 40px;
+    }
+
+    &__btn {
+        background-color: transparent;
+        border: 1px solid #fff;
+        padding: 16.5px 25px;
+
+        @media (any-hover: hover) {
+            &:hover {
+                background-color: $primaryColor;
+            }
+        }
+
+        @media (max-width:$mobile) {
+            font-size: 20px;
+            padding: 16px 28px;
+        }
+    }
+
+    &__bg {
+        position: absolute;
+        background-color: rgba(2, 2, 2, 0.35);
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+
+        &:after {
+            content: '';
+            position: absolute;
+            background-color: rgba(2, 2, 2, 0.35);
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+        }
     }
 }
 

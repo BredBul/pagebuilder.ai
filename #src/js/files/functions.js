@@ -67,9 +67,46 @@ if (location.hash) {
   }
 }
 //=================
+//Menu
+let iconMenu = document.querySelector(".icon-menu");
+let menuBody = document.querySelector(".menu__body");
+let body = document.querySelector("body");
+let spans = document.querySelectorAll("span");
+
+if (iconMenu != null) {
+  let delay = 500;
+  iconMenu.addEventListener("click", function (e) {
+    if (unlock) {
+      body_lock(delay);
+      iconMenu.classList.toggle("_active");
+      menuBody.classList.toggle("_active");
+    }
+  });
+}
+document.addEventListener("click", function (e) {
+  console.log(e.target);
+  if (
+    e.target !== iconMenu &&
+    e.target !== menuBody &&
+    e.target !== spans[0] &&
+    e.target !== spans[1] &&
+    e.target !== spans[2]
+  ) {
+    if (iconMenu.classList.contains("_active") === true) {
+      iconMenu.classList.remove("_active");
+      menuBody.classList.remove("_active");
+      let delay = 0;
+      body_lock(delay);
+    }
+  }
+});
+function menu_close() {
+  iconMenu.classList.remove("_active");
+  menuBody.classList.remove("_active");
+}
+//=================
 //BodyLock
 function body_lock(delay) {
-  let body = document.querySelector("body");
   if (body.classList.contains("_lock")) {
     body_lock_remove(delay);
   } else {
@@ -77,7 +114,6 @@ function body_lock(delay) {
   }
 }
 function body_lock_remove(delay) {
-  let body = document.querySelector("body");
   if (unlock) {
     let lock_padding = document.querySelectorAll("._lp");
     setTimeout(() => {
@@ -96,7 +132,6 @@ function body_lock_remove(delay) {
   }
 }
 function body_lock_add(delay) {
-  let body = document.querySelector("body");
   if (unlock) {
     let lock_padding = document.querySelectorAll("._lp");
     for (let index = 0; index < lock_padding.length; index++) {
@@ -116,6 +151,7 @@ function body_lock_add(delay) {
     }, delay);
   }
 }
+
 //=================
 //Tabs
 let tabs = document.querySelectorAll("._tabs");
@@ -454,11 +490,3 @@ function _is_hidden(el) {
   return el.offsetParent === null;
 }
 //========================================================================================================================================================
-// Burger
-const burger = document.querySelector(".icon-menu");
-const headerMenu = document.querySelector(".menu__body");
-burger.addEventListener("click", () => {
-  headerMenu.classList.toggle("_active");
-  burger.classList.toggle("_active");
-  document.body.classList.toggle("_lock");
-});

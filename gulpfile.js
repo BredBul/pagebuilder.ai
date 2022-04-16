@@ -40,7 +40,7 @@ let path = {
     favicon: src_folder + "/img/favicon.{jpg,png,svg,gif,ico,webp}",
     html: [src_folder + "/*.html", "!" + src_folder + "/_*.html"],
     js: [src_folder + "/js/app.js", src_folder + "/js/vendors.js"],
-    css: src_folder + "/scss/style.scss",
+    css: src_folder + "/scss/*.scss",
     images: [
       src_folder + "/img/**/*.{jpg,png,svg,gif,ico,webp}",
       "!**/favicon.*",
@@ -129,7 +129,7 @@ function images() {
     .pipe(
       imagemin([
         webp({
-          quality: 75,
+          quality: 100,
         }),
       ])
     )
@@ -146,7 +146,7 @@ function images() {
         progressive: true,
         svgoPlugins: [{ removeViewBox: false }],
         interlaced: true,
-        optimizationLevel: 3, // 0 to 7
+        optimizationLevel: 5, // 0 to 7
       })
     )
     .pipe(dest(path.build.images));
@@ -185,9 +185,9 @@ function fonts() {
     .pipe(browsersync.stream());
 }
 function fontstyle() {
-  let file_content = fs.readFileSync(src_folder + "/scss/fonts.scss");
+  let file_content = fs.readFileSync(src_folder + "/scss/base/fonts.scss");
   if (file_content == "") {
-    fs.writeFile(src_folder + "/scss/fonts.scss", "", cb);
+    fs.writeFile(src_folder + "/scss/base/fonts.scss", "", cb);
     return fs.readdir(path.build.fonts, function (err, items) {
       if (items) {
         let c_fontname;
@@ -196,7 +196,7 @@ function fontstyle() {
           fontname = fontname[0];
           if (c_fontname != fontname) {
             fs.appendFile(
-              src_folder + "/scss/fonts.scss",
+              src_folder + "/scss/base/fonts.scss",
               '@include font("' +
                 fontname +
                 '", "' +

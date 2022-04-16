@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-  @@include('_head.html',{ "title":"Главная" })
-
+  @@include('_head.html',{ "title":"Product" })
   <body>
     <div class="wrapper">
       @@include('_header.html',{})
@@ -23,7 +22,7 @@
               </div>
               <div class="grid__item grid__item--ds-6 grid__item--mb-12">
                 <div class="main-block__image _ibg">
-                  <img src="img/home-page/home-page__hero.png" alt="" />
+                  <img src="img/home-page/main-block-image-01.png" alt="" />
                 </div>
               </div>
             </div>
@@ -43,17 +42,21 @@
           </div>
         </section>
         <section class="page__guideline guideline">
-          <div class="grid-container guideline__container">
+          <div class="grid-container">
             <div class="grid guideline__body align-items-center">
-              <div class="grid__item grid__item--ds-6 grid__item--mb-6 order-1">
+              <div
+                class="grid__item grid__item--ds-6 grid__item--mb-12 order-1 order-2-mb"
+              >
                 <div class="guideline__image" style="max-width: 444px">
                   <img
-                    src="img/home-page/guideline/guideline-image-1.png"
+                    src="img/home-page/guideline/guideline-image-01.png"
                     alt=""
                   />
                 </div>
               </div>
-              <div class="grid__item grid__item--ds-6 grid__item--mb-6 order-2">
+              <div
+                class="grid__item grid__item--ds-6 grid__item--mb-12 order-2 order-1-mb"
+              >
                 <div class="guideline__content">
                   <h2 class="guideline__title text-upper">
                     ready-made templates
@@ -71,18 +74,22 @@
               </div>
             </div>
             <div class="grid guideline__body align-items-center">
-              <div class="grid__item grid__item--ds-6 grid__item--mb-6 order-2">
+              <div
+                class="grid__item grid__item--ds-6 grid__item--mb-12 order-2 order-2-mb"
+              >
                 <div
                   class="guideline__image"
-                  style="max-width: 586px; right: -57px; left: unset"
+                  style="max-width: 586px; right: -100px; left: unset"
                 >
                   <img
-                    src="img/home-page/guideline/guideline-image-2.png"
+                    src="img/home-page/guideline/guideline-image-02.png"
                     alt=""
                   />
                 </div>
               </div>
-              <div class="grid__item grid__item--ds-6 grid__item--mb-6 order-1">
+              <div
+                class="grid__item grid__item--ds-6 grid__item--mb-12 order-1 order-1-mb"
+              >
                 <div class="guideline__content">
                   <h2 class="guideline__title text-upper">opportunity name</h2>
                   <p class="guideline__desc desc">
@@ -101,18 +108,22 @@
               </div>
             </div>
             <div class="grid guideline__body align-items-center">
-              <div class="grid__item grid__item--ds-6 grid__item--mb-6 order-1">
+              <div
+                class="grid__item grid__item--ds-6 grid__item--mb-12 order-1 order-2-mb"
+              >
                 <div
                   class="guideline__image"
                   style="max-width: 473px; top: -77px; left: -83px"
                 >
                   <img
-                    src="img/home-page/guideline/guideline-image-3.png"
+                    src="img/home-page/guideline/guideline-image-03.png"
                     alt=""
                   />
                 </div>
               </div>
-              <div class="grid__item grid__item--ds-6 grid__item--mb-6 order-2">
+              <div
+                class="grid__item grid__item--ds-6 grid__item--mb-12 order-2 order-1-mb"
+              >
                 <div class="guideline__content">
                   <h2 class="guideline__title text-upper">opportunity name</h2>
                   <p class="guideline__desc desc">
@@ -124,19 +135,23 @@
                     platform, quick editing, a large selection of components,
                     etc., you can spy from shogun,
                   </p>
-                  <a href="#" class="guideline__link _icon-arrow-link"
-                    >Create a website</a
-                  >
+                  <a href="#" class="guideline__link _icon-arrow-link">
+                    Create a website
+                  </a>
                 </div>
               </div>
             </div>
             <div class="grid guideline__body align-items-center">
-              <div class="grid__item grid__item--ds-6 grid__item--mb-6 order-2">
+              <div
+                class="grid__item grid__item--ds-6 grid__item--mb-12 order-2 order-2-mb"
+              >
                 <div class="guideline__image">
                   <!-- <img src="img/home-page/guideline" alt="" /> -->
                 </div>
               </div>
-              <div class="grid__item grid__item--ds-6 grid__item--mb-6 order-1">
+              <div
+                class="grid__item grid__item--ds-6 grid__item--mb-12 order-1 order-1-mb"
+              >
                 <div class="guideline__content">
                   <h2 class="guideline__title text-upper">opportunity name</h2>
                   <p class="guideline__desc desc">
@@ -156,6 +171,11 @@
             </div>
           </div>
         </section>
+        <!-- prettier-ignore -->
+        @@include('_banner-cta.html',{ 
+          'title': 'create your online store now',
+          'src': 'img/banner-cta/banner-cta-img-01.png'
+      })
       </main>
       @@include('_footer.html',{})
     </div>
