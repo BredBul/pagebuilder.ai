@@ -1595,6 +1595,10 @@ a:hover {
     margin-bottom: 30px;
   }
 
+  .promotion__content {
+    padding: 15px 0;
+  }
+
   .guideline {
     background-image: url(../img/home-page/guideline/guidline-background-mb.svg);
     background-size: 100% 100%;
